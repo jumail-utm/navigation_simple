@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:navigation_simple/screens/summary.dart';
+// import 'package:navigation_simple/screens/summary.dart';
+import 'package:navigation_simple/screens/details.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -8,6 +9,7 @@ void main() => runApp(
         theme: ThemeData(
           primarySwatch: Colors.pink,
         ),
-        home: SummaryScreen(),
+        // home: SummaryScreen(),
+        home: DetailsScreen(),
       ),
     );
