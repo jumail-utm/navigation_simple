@@ -6,5 +6,6 @@ class Assessment {
 
   Assessment(this.member, this.points);
 
-  double get percent => 50.0 * (points.reduce((sum, item) => sum + item));
+  double get percent =>
+      (points.reduce((sum, item) => sum + item) / 20.0) * 100.0;
 }
