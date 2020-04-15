@@ -21,8 +21,6 @@ class _SummaryScreenState extends State<SummaryScreen> {
         builder: (context) => DetailsScreen(assessment),
       ),
     );
-
-    print(returnData);
   }
 
   @override

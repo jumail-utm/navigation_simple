@@ -45,11 +45,16 @@ class _DetailsScreenState extends State<DetailsScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton.extended(
-            label: const Text('Back'),
+            label: const Text('Save'),
             icon: const Icon(Icons.check_circle),
             heroTag: null,
-            onPressed: () =>
-                Navigator.of(context).pop('====> sent from DetailsScreen'),
+            onPressed: () => Navigator.of(context).pop(widget._data),
+          ),
+          FloatingActionButton.extended(
+            label: const Text('Cancel'),
+            icon: const Icon(Icons.cancel),
+            heroTag: null,
+            onPressed: () => Navigator.of(context).pop(null),
           ),
         ],
       ),
