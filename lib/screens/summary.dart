@@ -14,6 +14,17 @@ class SummaryScreen extends StatefulWidget {
 }
 
 class _SummaryScreenState extends State<SummaryScreen> {
+  void _navigate(assessment) async {
+    final returnData = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailsScreen(assessment),
+      ),
+    );
+
+    print(returnData);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,16 +55,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
             backgroundColor:
                 widget._data[index].percent < 50 ? Colors.red : Colors.green,
           ),
-          onTap: () {
-            Future<String> returnFuture = Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DetailsScreen(widget._data[index]),
-              ),
-            );
-
-            returnFuture.then((data) => print(data));
-          },
+          onTap: () => _navigate(widget._data[index]),
         ),
         separatorBuilder: (context, index) => Divider(
           color: Colors.grey,
