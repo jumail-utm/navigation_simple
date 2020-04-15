@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:navigation_simple/models/assessment.dart';
 import 'package:navigation_simple/models/group_member.dart';
 import 'details.dart';
 
@@ -21,13 +20,13 @@ class _SummaryScreenState extends State<SummaryScreen> {
       appBar: AppBar(
         title: Column(
           children: <Widget>[
-            Text(
+            const Text(
               'Peer and Self Assessement by',
               style: TextStyle(fontSize: 15),
             ),
             Text(
               widget._evaluator.fullName,
-              style: TextStyle(fontSize: 25),
+              style: const TextStyle(fontSize: 25),
             ),
           ],
         ),
@@ -46,11 +45,14 @@ class _SummaryScreenState extends State<SummaryScreen> {
                 widget._data[index].percent < 50 ? Colors.red : Colors.green,
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsScreen(widget._data[index]),
-                ));
+            Future<String> returnFuture = Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailsScreen(widget._data[index]),
+              ),
+            );
+
+            returnFuture.then((data) => print(data));
           },
         ),
         separatorBuilder: (context, index) => Divider(
