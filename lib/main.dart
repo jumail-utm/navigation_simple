@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:navigation_simple/screens/summary.dart';
+import 'package:navigation_simple/models/mock_data.dart';
+import 'package:navigation_simple/screens/summary.dart';
 import 'package:navigation_simple/screens/details.dart';
 
 void main() => runApp(
@@ -10,6 +11,6 @@ void main() => runApp(
           primarySwatch: Colors.pink,
         ),
         // home: SummaryScreen(),
-        home: DetailsScreen(),
+        home: DetailsScreen(mockData[0]),
       ),
     );
