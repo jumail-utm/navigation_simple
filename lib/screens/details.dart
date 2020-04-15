@@ -41,6 +41,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
           color: Colors.grey,
         ),
       ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton.extended(
+            label: Text('Back'),
+            icon: Icon(Icons.check_circle),
+            heroTag: null,
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
+      ),
     );
   }
 }
