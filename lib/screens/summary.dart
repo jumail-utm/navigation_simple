@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navigation_simple/models/assessment.dart';
 
 import 'package:navigation_simple/models/group_member.dart';
 import 'details.dart';
@@ -14,13 +15,19 @@ class SummaryScreen extends StatefulWidget {
 }
 
 class _SummaryScreenState extends State<SummaryScreen> {
-  void _navigate(assessment) async {
+  void _navigate(index) async {
     final returnData = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DetailsScreen(assessment),
+        builder: (context) => DetailsScreen(
+          Assessment.copy(widget._data[index]),
+        ),
       ),
     );
+
+    if (returnData != null) {
+      setState(() => widget._data[index] = returnData);
+    }
   }
 
   @override
@@ -53,7 +60,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
             backgroundColor:
                 widget._data[index].percent < 50 ? Colors.red : Colors.green,
           ),
-          onTap: () => _navigate(widget._data[index]),
+          onTap: () => _navigate(index),
         ),
         separatorBuilder: (context, index) => Divider(
           color: Colors.grey,
