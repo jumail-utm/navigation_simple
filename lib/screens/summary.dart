@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:navigation_simple/models/assessment.dart';
 import 'package:navigation_simple/models/group_member.dart';
+import 'details.dart';
 
 class SummaryScreen extends StatefulWidget {
   final GroupMember _evaluator;
-  final List<Assessment> _data;
+  final List _data;
 
   SummaryScreen(this._evaluator, this._data);
 
@@ -43,6 +45,13 @@ class _SummaryScreenState extends State<SummaryScreen> {
             backgroundColor:
                 widget._data[index].percent < 50 ? Colors.red : Colors.green,
           ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(widget._data[index]),
+                ));
+          },
         ),
         separatorBuilder: (context, index) => Divider(
           color: Colors.grey,
